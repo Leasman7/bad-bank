@@ -25,7 +25,7 @@ function NavBar() {
           <a className="nav-link active" aria-current="page" href="#/balance/">Balance</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#/alldata/">AllData</a>
+          <a className="nav-link active" aria-current="page" href="#/alldata/">All Data</a>
         </li>
       </ul>
     </div>
