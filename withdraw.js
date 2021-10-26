@@ -6,6 +6,8 @@ function Withdraw() {
   const ctx = React.useContext(UserContext);
 
   function handleWithdraw() {
+    let newTotal = balance - withdraw;
+    setBalance(newTotal);
     setShow(false);
   }
 
@@ -21,16 +23,16 @@ function Withdraw() {
       body={
         show ? (
           <>
-            Balance
+            Balance: ${balance}
             <br />
             Withdraw Amount
             <input
               type="input"
               className="form-control"
               id="withdraw"
-              placeholder="Withdraw Amount"
+              placeholder="ex. 10"
               value={withdraw}
-              onChange={(e) => setBalance(e.currentTarget.value)}
+              onChange={(e) => setWithdraw(e.currentTarget.value)}
             />
             <br />
             <button

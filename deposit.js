@@ -31,7 +31,7 @@ function Deposit() {
               min="1"
               className="form-control"
               id="deposit"
-              placeholder="Deposit Amount"
+              placeholder="ex. 10"
               value={deposit}
               onChange={(e) => setDeposit(e.currentTarget.value)}
             />
