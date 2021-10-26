@@ -9,8 +9,11 @@ function NavBar() {
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
+      <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="#/home/">Home</a>
+        </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#/CreateAccount/">Create Account</a>
+          <a className="nav-link active" aria-current="page" href="#/createaccount/">Create Account</a>
         </li>
         <li className="nav-item">
           <a className="nav-link active" aria-current="page" href="#/deposit/">Deposit</a>
