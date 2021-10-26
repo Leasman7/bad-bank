@@ -13,16 +13,16 @@ function NavBar() {
           <a className="nav-link active" aria-current="page" href="#/home/">Home</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#/createaccount/">Create Account</a>
+          <a className="nav-link active" href="#/createaccount/">Create Account</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#/deposit/">Deposit</a>
+          <a className="nav-link active" href="#/deposit/">Deposit</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#/withdraw/">Withdraw</a>
+          <a className="nav-link active" href="#/withdraw/">Withdraw</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#/alldata/">All Data</a>
+          <a className="nav-link active" href="#/alldata/">All Data</a>
         </li>
       </ul>
     </div>

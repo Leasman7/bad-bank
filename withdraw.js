@@ -1,21 +1,20 @@
 function Withdraw() {
-    const [show, setShow] = React.useState(true);
-    const [status, setStatus] = React.useState("");
-    const [balance, setBalance] = React.useState('');
-    const [withdraw, setWithdraw] = React.useState('');
-    const ctx = React.useContext(UserContext); 
-  
-    function handleWithdraw() {
-        
-        setShow(false);
-    }
-    
-    function clearForm() {
-        setShow(true);
-    }
-    
-    return (
-        <Card
+  const [show, setShow] = React.useState(true);
+  const [status, setStatus] = React.useState("");
+  const [balance, setBalance] = React.useState("");
+  const [withdraw, setWithdraw] = React.useState("");
+  const ctx = React.useContext(UserContext);
+
+  function handleWithdraw() {
+    setShow(false);
+  }
+
+  function clearForm() {
+    setShow(true);
+  }
+
+  return (
+    <Card
       bgcolor="danger"
       header="Withdraw"
       status={status}

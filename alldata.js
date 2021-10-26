@@ -1,8 +1,12 @@
 function AllData() {
+    const status = React.useState(status);
     const ctx = React.useContext(UserContext);
     return (
-        <h1>All Data<br/>
-            {JSON.stringify(ctx)}
-        </h1>
+        <Card
+            bgcolor="secondary"
+            header="All Data"
+            status={status}
+            body={JSON.stringify(ctx)}
+        />
     );
 }
