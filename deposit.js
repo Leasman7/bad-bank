@@ -2,13 +2,29 @@ function Deposit() {
     const [show, setShow] = React.useState(true);
     const [status, setStatus] = React.useState("");
     const [balance, setBalance] = React.useState(0);
-    const [deposit, setDeposit] = React.useState('');
+    const [deposit, setDeposit] = React.useState(0);
     const ctx = React.useContext(UserContext); 
   
     function handleDeposit() {
-        let newTotal = balance + deposit;
-        setBalance(newTotal);
-        setShow(false);
+      if(!isValidDeposit(deposit)) { 
+        return;
+      }
+      let newTotal = balance + parseInt(deposit);
+      setBalance(newTotal);
+      setShow(false);
+      setDeposit(0);
+    }
+
+    function isValidDeposit(userInput) {
+      if(isNaN(userInput)) {
+        alert('Input is not a number');
+        return false;
+      }
+      if(userInput <= 0) {
+        alert('Input is not a valid deposit');
+        return false;
+      }
+      return true;
     }
     
     function clearForm() {
@@ -27,8 +43,6 @@ function Deposit() {
             <br />
             Deposit Amount
             <input
-              type="number"
-              min="1"
               className="form-control"
               id="deposit"
               placeholder="ex. 10"
@@ -40,6 +54,7 @@ function Deposit() {
               type="submit"
               className="btn btn-dark"
               onClick={handleDeposit}
+              disabled = {deposit == ''}
             >
               Deposit
             </button>
