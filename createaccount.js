@@ -77,6 +77,7 @@ function CreateAccount() {
               type="submit"
               className="btn btn-dark"
               onClick={handleCreate}
+              disabled={name == "" && email == "" && password == ""}
             >
               Create Account
             </button>

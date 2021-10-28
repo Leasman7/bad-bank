@@ -20,7 +20,7 @@ function Deposit() {
       return false;
     }
     if (userInput <= 0) {
-      alert("Input is not a valid deposit");
+      alert("Deposit cannot be a negative number");
       return false;
     }
     return true;

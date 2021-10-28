@@ -16,19 +16,19 @@ function NavBar() {
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
-      <li className="nav-item" title="description to use">
+      <li className="nav-item" title="BadBank Home Page">
           <a className={"nav-link" + (isActive ("home") ? " active" : "")} aria-current="page" href="#/home">Home</a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" title="Create a new account">
           <a className={"nav-link" + (isActive ("createaccount") ? " active" : "")} href="#/createaccount" onSelect={isActive}>Create Account</a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" title="Add to your balance">
           <a className={"nav-link" + (isActive ("deposit") ? " active" : "")} href="#/deposit">Deposit</a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" title="Subtract from your balance">
           <a className={"nav-link" + (isActive ("withdraw") ? " active" : "")} href="#/withdraw">Withdraw</a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" title="View all user data">
           <a className={"nav-link" + (isActive ("alldata") ? " active" : "")} href="#/alldata">All Data</a>
         </li>
       </ul>
