@@ -6,11 +6,16 @@ function CreateAccount() {
   const [password, setPassword] = React.useState("");
   const [balance, setBalance, users, setUsers] = React.useContext(UserContext);
 
-  function validate(field, label) {
+  function validate(field, label, password) {
       if (!field) {
           setStatus('Error: ' + label);
           setTimeout(() => setStatus(''), 3000);
+          alert("Account must include " + label);
           return false;
+      }
+      if(password.length < 8){
+        alert("Password must be at least 8 characters");
+        return false;
       }
       return true;
   }  
