@@ -4,15 +4,17 @@ function AllData() {
 
     function userDisplay(user) {
         return <div>
-            <h2>Name: {user.name}</h2>
-            
+            <p>Email: {user.email}</p>
+            <p>Password: {user.password}</p>
+            <p>Balance: {user.balance}</p>
+
         </div>
     }
     return (
         users.map((user, i) => {
             return <Card
             bgcolor="secondary"
-            header="All Data"
+            header={user.name}
             status={status}
             body={userDisplay(user)}
             />
