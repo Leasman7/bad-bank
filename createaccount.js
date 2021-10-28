@@ -7,35 +7,35 @@ function CreateAccount() {
   const [balance, setBalance, users, setUsers] = React.useContext(UserContext);
 
   function validate(field, label, password) {
-      if (!field) {
-          setStatus('Error: ' + label);
-          setTimeout(() => setStatus(''), 3000);
-          alert("Account must include " + label);
-          return false;
-      }
-      if(password.length < 8){
-        alert("Password must be at least 8 characters");
-        return false;
-      }
-      return true;
-  }  
+    if (!field) {
+      setStatus("Error: " + label);
+      setTimeout(() => setStatus(""), 3000);
+      alert("Account must include " + label);
+      return false;
+    }
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters");
+      return false;
+    }
+    return true;
+  }
 
   function handleCreate() {
-      console.log(name,email,password);
-      if (!validate(name, 'name')) return;
-      if (!validate(email, 'email')) return;
-      if (!validate(password, 'password')) return;
-      users.push({name,email,password,balance});
-      setUsers(users);
-      setShow(false);
+    console.log(name, email, password);
+    if (!validate(name, "name")) return;
+    if (!validate(email, "email")) return;
+    if (!validate(password, "password")) return;
+    users.push({ name, email, password, balance });
+    setUsers(users);
+    setShow(false);
   }
-  
+
   function clearForm() {
-        setName('');
-        setEmail('');
-        setPassword('');
-        setShow(true);
-    }
+    setName("");
+    setEmail("");
+    setPassword("");
+    setShow(true);
+  }
 
   return (
     <Card

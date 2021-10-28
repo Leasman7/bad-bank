@@ -32,7 +32,7 @@ function Withdraw() {
 
   return (
     <Card
-      bgcolor="danger"
+      bgcolor="warning"
       header="Withdraw"
       status={status}
       body={
