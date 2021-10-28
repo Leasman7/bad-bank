@@ -1,13 +1,22 @@
 function AllData() {
     const status = React.useState(status);
-    const ctx = React.useContext(UserContext);
+    const [balance, setBalance, users] = React.useContext(UserContext);
 
+    function userDisplay(user) {
+        return <div>
+            <h2>Name: {user.name}</h2>
+            
+        </div>
+    }
     return (
-        <Card
+        users.map((user, i) => {
+            return <Card
             bgcolor="secondary"
             header="All Data"
             status={status}
-            body={JSON.stringify(ctx)}
-        />
+            body={userDisplay(user)}
+            />
+        })
+        
     );
 }

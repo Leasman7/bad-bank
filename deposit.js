@@ -1,38 +1,37 @@
 function Deposit() {
-    const [show, setShow] = React.useState(true);
-    const [status, setStatus] = React.useState("");
-    const [balance, setBalance] = React.useState(0);
-    const [deposit, setDeposit] = React.useState(0);
-    const ctx = React.useContext(UserContext); 
-  
-    function handleDeposit() {
-      if(!isValidDeposit(deposit)) { 
-        return;
-      }
-      let newTotal = balance + parseInt(deposit);
-      setBalance(newTotal);
-      setShow(false);
-      setDeposit(0);
-    }
+  const [show, setShow] = React.useState(true);
+  const [status, setStatus] = React.useState("");
+  const [balance, setBalance] = React.useContext(UserContext);
+  const [deposit, setDeposit] = React.useState(0);
 
-    function isValidDeposit(userInput) {
-      if(isNaN(userInput)) {
-        alert('Input is not a number');
-        return false;
-      }
-      if(userInput <= 0) {
-        alert('Input is not a valid deposit');
-        return false;
-      }
-      return true;
+  function handleDeposit() {
+    if (!isValidDeposit(deposit)) {
+      return;
     }
-    
-    function clearForm() {
-        setShow(true);
+    let newTotal = balance + parseInt(deposit);
+    setBalance(newTotal);
+    setShow(false);
+    setDeposit(0);
+  }
+
+  function isValidDeposit(userInput) {
+    if (isNaN(userInput)) {
+      alert("Input is not a number");
+      return false;
     }
-    
-    return (
-        <Card
+    if (userInput <= 0) {
+      alert("Input is not a valid deposit");
+      return false;
+    }
+    return true;
+  }
+
+  function clearForm() {
+    setShow(true);
+  }
+
+  return (
+    <Card
       bgcolor="success"
       header="Deposit"
       status={status}
@@ -54,7 +53,7 @@ function Deposit() {
               type="submit"
               className="btn btn-dark"
               onClick={handleDeposit}
-              disabled = {deposit == ''}
+              disabled={deposit == ""}
             >
               Deposit
             </button>

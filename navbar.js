@@ -1,5 +1,12 @@
 function NavBar() {
-    return (
+  function isActive(input) {
+    console.log(input);
+    if(ReactRouterDOM.useLocation().pathname.includes(input)){
+      return true;
+    }
+    return false;
+  }  
+  return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
@@ -9,20 +16,20 @@ function NavBar() {
     </button>
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
-      <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#/home/">Home</a>
+      <li className="nav-item" title="description to use">
+          <a className={"nav-link" + (isActive ("home") ? " active" : "")} aria-current="page" href="#/home">Home</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" href="#/createaccount/">Create Account</a>
+          <a className={"nav-link" + (isActive ("createaccount") ? " active" : "")} href="#/createaccount" onSelect={isActive}>Create Account</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" href="#/deposit/">Deposit</a>
+          <a className={"nav-link" + (isActive ("deposit") ? " active" : "")} href="#/deposit">Deposit</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" href="#/withdraw/">Withdraw</a>
+          <a className={"nav-link" + (isActive ("withdraw") ? " active" : "")} href="#/withdraw">Withdraw</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" href="#/alldata/">All Data</a>
+          <a className={"nav-link" + (isActive ("alldata") ? " active" : "")} href="#/alldata">All Data</a>
         </li>
       </ul>
     </div>

@@ -4,8 +4,7 @@ function CreateAccount() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const ctx = React.useContext(UserContext);
-  const [balance, setBalance] = React.useState(0);
+  const [balance, setBalance, users, setUsers] = React.useContext(UserContext);
 
   function validate(field, label) {
       if (!field) {
@@ -21,7 +20,8 @@ function CreateAccount() {
       if (!validate(name, 'name')) return;
       if (!validate(email, 'email')) return;
       if (!validate(password, 'password')) return;
-      ctx.users.push({name,email,password,balance});
+      users.push({name,email,password,balance});
+      setUsers(users);
       setShow(false);
   }
   

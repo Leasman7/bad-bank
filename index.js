@@ -1,8 +1,11 @@
 function Spa(){
+    const [balance, setBalance] = React.useState(0);
+    const [users, setUsers] = React.useState([{name: 'abel', email: 'abel@mit.edu', password: 'secret', balance: 100}]);
+   
     return (
         <HashRouter>
             <NavBar/>
-            <UserContext.Provider value={{users: [{name: 'abel', email: 'abel@mit.edu', password: 'secret', balance: 100}]}}>
+            <UserContext.Provider value={[balance, setBalance, users, setUsers]}>
                 <Route path="/" exact component={Home} />
                 <Route path="/home/" component={Home} />
                 <Route path="/createaccount/" component={CreateAccount} />
