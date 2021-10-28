@@ -1,13 +1,29 @@
 function Withdraw() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
-  const [withdraw, setWithdraw] = React.useState("");
-  const ctx = React.useContext(UserContext);
+  const [balance, setBalance] = React.useContext(UserContext);
+  const [withdraw, setWithdraw] = React.useState(0);
 
   function handleWithdraw() {
-    let newTotal = balance - withdraw;
+    if (!isValidWithdraw(withdraw)) {
+      return;
+    }
+    let newTotal = balance - parseInt(withdraw);
     setBalance(newTotal);
     setShow(false);
+    setWithdraw(0);
+  }
+
+  function isValidWithdraw(userInput) {
+    if (isNaN(userInput)) {
+      alert("Input is not a number");
+      return false;
+    }
+    if (balance - userInput < 0) {
+      alert("Cannot overdraw balance");
+      return false;
+    }
+    return true;
   }
 
   function clearForm() {
@@ -16,7 +32,7 @@ function Withdraw() {
 
   return (
     <Card
-      bgcolor="danger"
+      bgcolor="success"
       header="Withdraw"
       status={status}
       body={
@@ -26,7 +42,6 @@ function Withdraw() {
             <br />
             Withdraw Amount
             <input
-              type="input"
               className="form-control"
               id="withdraw"
               placeholder="ex. 10"
@@ -38,6 +53,7 @@ function Withdraw() {
               type="submit"
               className="btn btn-dark"
               onClick={handleWithdraw}
+              disabled={withdraw == ""}
             >
               Withdraw
             </button>
