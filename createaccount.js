@@ -13,8 +13,11 @@ function CreateAccount() {
       alert("Account must include " + label);
       return false;
     }
-    let psw = {password};
-    if (psw.length < 8) {
+    return true;
+  }
+
+  function validateEmail(userInput) {
+    if(userInput.length < 8) {
       alert("Password must be at least 8 characters");
       return false;
     }
@@ -26,6 +29,7 @@ function CreateAccount() {
     if (!validate(name, "name")) return;
     if (!validate(email, "email")) return;
     if (!validate(password, "password")) return;
+    if (!validateEmail(password)) return;
     users.push({ name, email, password, balance });
     setUsers(users);
     setShow(false);
