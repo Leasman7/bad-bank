@@ -16,7 +16,7 @@ function Deposit() {
 
   function isValidDeposit(userInput) {
     if (isNaN(userInput)) {
-      alert("Input is not a number");
+      alert("Input must be a number");
       return false;
     }
     if (userInput <= 0) {

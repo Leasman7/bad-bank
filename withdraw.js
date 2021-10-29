@@ -19,6 +19,10 @@ function Withdraw() {
       alert("Input is not a number");
       return false;
     }
+    if (userInput <= 0) {
+      alert("Input cannot be a negative number");
+      return false;
+    }
     if (balance - userInput < 0) {
       alert("Cannot overdraw balance");
       return false;
