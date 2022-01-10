@@ -1,78 +1,34 @@
 var ui = {};
 
 ui.navigation = `
-<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            BadBank
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item" title="BadBank Home Page">
-                <a
-                  className={"nav-link" + (isActive("home") ? " active" : "")}
-                  aria-current="page"
-                  href="#/home"
-                >
-                  Home
-                </a>
-              </li>
-              <li className="nav-item" title="Create a new account">
-                <a
-                  className={
-                    "nav-link" + (isActive("createaccount") ? " active" : "")
-                  }
-                  href="#/createaccount"
-                  onSelect={isActive}
-                >
-                  Create Account
-                </a>
-              </li>
-              <li className="nav-item" title="Add to your balance">
-                <a
-                  className={
-                    "nav-link" + (isActive("deposit") ? " active" : "")
-                  }
-                  href="#/deposit"
-                >
-                  Deposit
-                </a>
-              </li>
-              <li className="nav-item" title="Subtract from your balance">
-                <a
-                  className={
-                    "nav-link" + (isActive("withdraw") ? " active" : "")
-                  }
-                  href="#/withdraw"
-                >
-                  Withdraw
-                </a>
-              </li>
-              <li className="nav-item" title="View all user data">
-                <a
-                  className={
-                    "nav-link" + (isActive("alldata") ? " active" : "")
-                  }
-                  href="#/alldata"
-                >
-                  All Data
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#" onclick="defaultModule()">BadBank</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#createAccount" onclick="loadCreateAccount()" id="createAccount">Create Account<a/>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="loadLogin()" id="login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="loadDeposit()" id="deposit">Deposit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="loadWithdraw()" id="withdraw">Withdraw</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="loadBalance()" id="balance">Balance</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="loadAllData()" id="alldata">AllData</a>
+        </li>
+      </ul>
+  </div>
+</nav>
 `;
 
 var navigation = document.getElementById('navigation');
