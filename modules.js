@@ -52,7 +52,7 @@ ui.createAccount = `
 
 ui.login = `
     <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-        <div class="card-holder">Login</div>
+        <div class="card-header">Login</div>
         <div class="card-body">
             Email<br>
             <input type="input" class="form-control" id="loginEmail" placeholder="Enter Email"><br>
@@ -105,7 +105,7 @@ ui.balance = `
 `;
 
 ui.default = `
-    <div class="card bg-dark mb-3" style="max-width: 18rem;">
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
         <div class="card-header">BadBank Landing Module</div>
         <div class="card-body">
             <h5 class="card-title">Welcome to the bank</h5>
@@ -120,3 +120,33 @@ ui.allData = `
     <button type="button" class="btn btn-secondary" onclick="allData()">Show All Data</button>
     <div id="allDataStatus"></div>
 `;
+
+var loadCreateAccount = function() {
+    target.innerHTML = ui.createAccount;
+};
+
+var loadLogin = function() {
+    target.innerHTML = ui.login;
+};
+
+var loadDeposit = function() {
+    target.innerHTML = ui.deposit;
+};
+
+var loadWithdraw = function() {
+    target.innerHTML = ui.withdraw;
+};
+
+var loadBalance = function() {
+    target.innerHTML = ui.balance;
+};
+
+var defaultModule = function() {
+    target.innerHTML = ui.default;
+};
+
+var loadAllData = function() {
+    target.innerHTML = ui.allData;
+};
+
+defaultModule();
