@@ -23,6 +23,29 @@ app.get('/account/login/:email/:password', function (req, res) {
     });
 });
 
+// deposit
+app.get('/account/deposit/:deposit/:balance', function (req, res) {
+    res.send({
+        deposit: req.params.deposit,
+        balance: req.params.balance
+    });
+});
+
+// withdraw
+app.get('/account/withdraw/:withdraw/:balance', function (req, res) {
+    res.send({
+        withdraw: req.params.deposit,
+        balance: req.params.balance
+    });
+});
+
+// balance
+app.get('/account/balance/:balance', function (req, res) {
+    res.send ({
+        balance: req.params.balance
+    });
+});
+
 // all accounts
 app.get('account/all', function(req, res) {
     res.send({
