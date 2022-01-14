@@ -20,7 +20,7 @@ MongoDB
 Docker
 
 ## Features and Roadmap
-Further functionality of components is needed, also validation for creating account.
+This app features styling through bootstrap, components that load onto a single page using react, and the use of mongodb for holding the user information. You can use the app to create a user, make deposits or withdrawals that add to or subtract from a current balance, and display all of the current user data. Further functionality is needed, such as validation for creating account, full connection to the database, and the ability to login.
 
 ## License
 This project is licensed under the MIT license as described in included license file.
