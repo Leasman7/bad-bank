@@ -12,11 +12,11 @@ Run "node index.js" to get app up and running on your local machine. Navigate to
 ![Image of badbank deposit page](https://i.postimg.cc/k4mMx2nW/Screenshot-69.png)
 
 ## Technology Used:
-React
-Node
-Express
-Cors
-MongoDB
+React,
+Node,
+Express,
+Cors,
+MongoDB, and
 Docker
 
 ## Features and Roadmap
