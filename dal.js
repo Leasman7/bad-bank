@@ -22,11 +22,7 @@ function create (name, email, password) {
 }
 
 // login user
-function login (email, password) {
-    return new Promise((resolve, reject) => {
-        
-    })
-}
+
 
 // deposit
 

@@ -18,6 +18,7 @@ app.get('/account/create/:name/:email/:password', function (req, res) {
 });
 
 // login user
+/* 
 app.get('/account/login/:email/:password', function (req, res) {
     res.send({
         email: req.params.email,
@@ -47,9 +48,10 @@ app.get('/account/balance/:balance', function (req, res) {
         balance: req.params.balance
     });
 });
+*/
 
 // all accounts
-app.get('account/all', function(req, res) {
+app.get('/account/all', function(req, res) {
     dal.all().
         then((docs) => {
             console.log(docs);
