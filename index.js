@@ -21,9 +21,16 @@ app.put('/account/create', function (req, res) {
 app.get('/account/get', function (req, res) {
     dal.get(req.body.name, req.body.email, req.body.password).all
         .then
+            res.send("GET request called")
 });
 
-app.post('/account/post', function (req, res) {
+app.post('/account/deposit', function (req, res) {
+    dal.update(req.body.balance)
+
+});
+
+app.post('/account/withdraw', function (req, res) {
+    dal.update(req.body.balance)
 
 });
 // login user

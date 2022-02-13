@@ -31,8 +31,14 @@ function get (name, email, password, balance) {
     })
 };
 
-function update () {
-
+function update (name, email, password, balance) {
+    return new Promise((resolve, reject) => {
+        const collection = db.collection('users');
+        const doc = {name, email, password};
+        collection.findOneAndUpdate(doc, function(err, result) {
+            err ? reject(err) : resolve(doc);
+        });
+    })
 };
 
 // all users
@@ -47,4 +53,4 @@ function all() {
     })
 }
 
-module.exports = {create, all};
+module.exports = {create, all, get, update};
