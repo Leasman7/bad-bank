@@ -18,53 +18,23 @@ app.put('/account/create', function (req, res) {
         });
 });
 
+// get based on login info
 app.get('/account/get', function (req, res) {
-    dal.get(req.body.name, req.body.email, req.body.password).all
-        .then
-            res.send("GET request called")
+    dal.get(req.body.email, req.body.password).
+        then((user) => {
+            console.log(user)
+            res.send(user)
+        });
 });
 
-app.post('/account/deposit', function (req, res) {
-    dal.update(req.body.balance)
-
+// update balance with deposit or withdraw
+app.post('/account/update', function (req, res) {
+    dal.update(req.body.name, req.body.email, req.body.password, req.body.balance).
+        then((user) => {
+            console.log(user)
+            res.send(user)
+        }); 
 });
-
-app.post('/account/withdraw', function (req, res) {
-    dal.update(req.body.balance)
-
-});
-// login user
-/* 
-app.get('/account/login/:email/:password', function (req, res) {
-    res.send({
-        email: req.params.email,
-        password: req.params.password
-    });
-});
-
-// deposit
-app.get('/account/deposit/:deposit/:balance', function (req, res) {
-    res.send({
-        deposit: req.params.deposit,
-        balance: req.params.balance
-    });
-});
-
-// withdraw
-app.get('/account/withdraw/:withdraw/:balance', function (req, res) {
-    res.send({
-        withdraw: req.params.deposit,
-        balance: req.params.balance
-    });
-});
-
-// balance
-app.get('/account/balance/:balance', function (req, res) {
-    res.send ({
-        balance: req.params.balance
-    });
-});
-*/
 
 // all accounts
 app.get('/account/all', function(req, res) {

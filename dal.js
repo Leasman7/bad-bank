@@ -21,22 +21,25 @@ function create (name, email, password) {
     })
 }
 
-function get (name, email, password, balance) {
+// login or info retrieval by email and password
+function get (email, password) {
     return new Promise((resolve, reject) => {
         const collection = db.collection('users');
-        const doc = {name, email, password};
+        const doc = {email, password};
         collection.findOne(doc, function (err, result) {
-            err ? reject(err) : resolve(doc);
+            err ? reject(err) : resolve(result);
         });
     })
 };
 
+// update balance (or name, email, password if necessary) by email and password
 function update (name, email, password, balance) {
     return new Promise((resolve, reject) => {
         const collection = db.collection('users');
-        const doc = {name, email, password};
-        collection.findOneAndUpdate(doc, function(err, result) {
-            err ? reject(err) : resolve(doc);
+        const filterDoc = {email, password};
+        const updateDoc = {$set: {name, email, password, balance}};
+        collection.findOneAndUpdate(filterDoc, updateDoc, function(err, result) {
+            err ? reject(err) : resolve(result);
         });
     })
 };

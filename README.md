@@ -24,3 +24,7 @@ This app features styling through bootstrap, components that load onto a single 
 
 ## License
 This project is licensed under the MIT license as described in included license file.
+
+### To start the mongodb server on my machine
+Command Prompt
+`"C://Program Files/MongoDb/Server/5.0/bin/mongod.exe" --dbpath C://Data/Db`
