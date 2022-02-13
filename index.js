@@ -5,18 +5,27 @@ var dal = require('./dal.js');
 
 // used to serve static files from public directory
 app.use(express.static('public'));
+app.use(express.json());
 app.use(cors());
 
 // create user account
-app.get('/account/create/:name/:email/:password', function (req, res) {
+app.put('/account/create', function (req, res) {
     // else create user
-    dal.create(req.params.name, req.params.email, req.params.password).
+    dal.create(req.body.name, req.body.email, req.body.password).
         then((user) => {
             console.log(user);
             res.send(user);
         });
 });
 
+app.get('/account/get', function (req, res) {
+    dal.get(req.body.name, req.body.email, req.body.password).all
+        .then
+});
+
+app.post('/account/post', function (req, res) {
+
+});
 // login user
 /* 
 app.get('/account/login/:email/:password', function (req, res) {

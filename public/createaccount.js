@@ -1,3 +1,5 @@
+const req = require("express/lib/request");
+
 function CreateAccount() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
@@ -32,7 +34,24 @@ function CreateAccount() {
     if (!validateEmail(password)) return;
     users.push({ name, email, password, balance });
     setUsers(users);
+    handleCreateUserDb({ name, email, password, balance })
     setShow(false);
+  }
+
+  function handleCreateUserDb(user){
+    // Simple PUT request with a JSON body using fetch
+    const requestOptions = {
+        method: 'PUT',
+        headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json' },
+        body: JSON.stringify(user)
+    };
+    console.log(requestOptions)
+    fetch('http://localhost:3000/account/create', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data) //this.setState({ name: data.name })
+        );
   }
 
   function clearForm() {

@@ -4,6 +4,7 @@
   "description": "A simple banking application, called \"bad-bank\" because it has no security features. Styled with bootstrap, this SPA used React to load each \"page\" using components.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
