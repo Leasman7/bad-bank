@@ -1,7 +1,7 @@
 function Deposit() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
-  const [balance, setBalance, currentUser, setCurrentUser] = React.useContext(UserContext);
+  const [currentUser, setCurrentUser] = React.useContext(UserContext);
   const [deposit, setDeposit] = React.useState(0);
 
   function setBalanceInDb(name, email, password, balance) {
@@ -20,13 +20,12 @@ function Deposit() {
   }
 
   function handleDeposit() {
-    if (currentUser == null || !isValidDeposit(deposit)) {
+    if (!currentUser.isValid || !isValidDeposit(deposit)) {
       return;
     }
-    let newTotal = balance + parseInt(deposit);
-    setBalance(newTotal);
-    setCurrentUser({"name": currentUser.name, "email": currentUser.email, "password": currentUser.password, "balance": newTotal})
-    setBalanceInDb(currentUser.name, currentUser.email, currentUser.password, currentUser.balance);
+    let newTotal = currentUser.balance + parseInt(deposit);
+    setCurrentUser({"name": currentUser.name, "email": currentUser.email, "password": currentUser.password, "balance": newTotal, "isValid": true})
+    setBalanceInDb(currentUser.name, currentUser.email, currentUser.password, newTotal);
     setShow(false);
     setDeposit(0);
   }
@@ -55,7 +54,7 @@ function Deposit() {
       body={
         show ? (
           <>
-            Balance: ${balance}
+            Balance: ${currentUser.balance}
             <br />
             Deposit Amount
             <input
@@ -70,7 +69,7 @@ function Deposit() {
               type="submit"
               className="btn btn-dark"
               onClick={handleDeposit}
-              disabled={deposit == ""}
+              disabled={deposit == "" || !currentUser.isValid}
             >
               Deposit
             </button>
