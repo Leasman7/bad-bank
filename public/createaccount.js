@@ -1,5 +1,3 @@
-const req = require("express/lib/request");
-
 function CreateAccount() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");

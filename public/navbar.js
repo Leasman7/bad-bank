@@ -76,6 +76,15 @@ function NavBar() {
                     All Data
                   </a>
                 </li>
+                <li className="nav-item" title="Login">
+                  <a
+                    className={"nav-link" + (isActive("login") ? " active" : "")}
+                    aria-current="page"
+                    href="#/login"
+                  >
+                    Login
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

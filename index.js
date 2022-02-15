@@ -19,7 +19,7 @@ app.put('/account/create', function (req, res) {
 });
 
 // get based on login info
-app.get('/account/get', function (req, res) {
+app.post('/account/get', function (req, res) {
     dal.get(req.body.email, req.body.password).
         then((user) => {
             console.log(user)

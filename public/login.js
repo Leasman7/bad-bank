@@ -1,4 +1,41 @@
 function Login() {
+    const [show, setShow] = React.useState(true);
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [currentUser, setCurrentUser] = React.useContext(UserContext);
+    
+    function handleSetCurrentUser(user) {
+        if(user == null) {
+            setCurrentUser(null);
+            return;
+        }
+        setCurrentUser(user);
+    }
+
+    function validateLogin() {
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json' },
+            body: JSON.stringify({email, password})
+        };
+        console.log(requestOptions)
+        fetch('http://localhost:3000/account/get', requestOptions)
+            .then(response => response.json())
+            .then(data => handleSetCurrentUser(data));
+    }
+    
+    function handleLogin() {
+        validateLogin();
+        console.log(currentUser);
+    }
+
+    function clearForm() {
+        setEmail("");
+        setPassword("");
+        setShow(true);
+      }
 
     return (
         <Card
@@ -41,7 +78,7 @@ function Login() {
               </>
             ) : (
               <>
-                <h5>You successfully logged in as ${email}</h5>
+                <h5>You successfully logged in</h5>
                 <button type="submit" className="btn btn-dark" onClick={clearForm}>
                   Sign Out
                 </button>

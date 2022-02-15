@@ -1,15 +1,32 @@
 function Deposit() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
-  const [balance, setBalance] = React.useContext(UserContext);
+  const [balance, setBalance, currentUser, setCurrentUser] = React.useContext(UserContext);
   const [deposit, setDeposit] = React.useState(0);
 
+  function setBalanceInDb(name, email, password, balance) {
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json' },
+      body: JSON.stringify({name, email, password, balance})
+  };
+  console.log(requestOptions)
+  fetch('http://localhost:3000/account/update', requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data) //this.setState({ name: data.name })
+      );
+  }
+
   function handleDeposit() {
-    if (!isValidDeposit(deposit)) {
+    if (currentUser == null || !isValidDeposit(deposit)) {
       return;
     }
     let newTotal = balance + parseInt(deposit);
     setBalance(newTotal);
+    setCurrentUser({"name": currentUser.name, "email": currentUser.email, "password": currentUser.password, "balance": newTotal})
+    setBalanceInDb(currentUser.name, currentUser.email, currentUser.password, currentUser.balance);
     setShow(false);
     setDeposit(0);
   }
