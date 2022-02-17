@@ -98,7 +98,7 @@ function Login() {
             >
               Login
             </button>
-            <div class="g-signin2" data-onsuccess="Google_signIn"></div>
+            <div className="g-signin2" data-onsuccess="Google_signIn"></div>
           </>
         ) : (
           <>
