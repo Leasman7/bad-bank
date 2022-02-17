@@ -75,6 +75,7 @@ function Login() {
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.currentTarget.value)}
+              onKeyPress={handleUserKeyPress}
             />
             <br />
             Password

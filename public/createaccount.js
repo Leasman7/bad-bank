@@ -57,6 +57,12 @@ function CreateAccount() {
     setShow(true);
   }
 
+  function handleUserKeyPress(e) {
+    if(e.key == "Enter") {
+      handleLogin();
+    }
+  }
+
   return (
     <Card
       bgcolor="info"
@@ -74,6 +80,7 @@ function CreateAccount() {
               placeholder="Enter name"
               value={name}
               onChange={(e) => setName(e.currentTarget.value)}
+              onKeyPress={handleUserKeyPress}
             />
             <br />
             Email address
@@ -85,6 +92,7 @@ function CreateAccount() {
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.currentTarget.value)}
+              onKeyPress={handleUserKeyPress}
             />
             <br />
             Password
@@ -96,6 +104,7 @@ function CreateAccount() {
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.currentTarget.value)}
+              onKeyPress={handleUserKeyPress}
             />
             <br />
             Account Type
@@ -106,6 +115,7 @@ function CreateAccount() {
               name="account-type"
               value={accountType}
               onChange={(e) => setAccountType(e.currentTarget.value)}
+              onKeyPress={handleUserKeyPress}
               >
               <option value="checking">Checking</option>
               <option value="savings">Savings</option>

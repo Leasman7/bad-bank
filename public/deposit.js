@@ -45,6 +45,12 @@ function Deposit() {
     setShow(true);
   }
 
+  function handleUserKeyPress(e) {
+    if(e.key == "Enter") {
+      handleLogin();
+    }
+  }
+  
   return (
     <Card
       bgcolor="success"
@@ -62,6 +68,7 @@ function Deposit() {
               placeholder="ex. 10"
               value={deposit}
               onChange={(e) => setDeposit(e.currentTarget.value)}
+              onKeyPress={handleUserKeyPress}
             />
             <br />
             <button

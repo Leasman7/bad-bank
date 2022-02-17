@@ -49,6 +49,12 @@ function Withdraw() {
     setShow(true);
   }
 
+  function handleUserKeyPress(e) {
+    if(e.key == "Enter") {
+      handleLogin();
+    }
+  }
+
   return (
     <Card
       bgcolor="warning"
@@ -66,6 +72,7 @@ function Withdraw() {
               placeholder="ex. 10"
               value={withdraw}
               onChange={(e) => setWithdraw(e.currentTarget.value)}
+              onKeyPress={handleUserKeyPress}
             />
             <br />
             <button
