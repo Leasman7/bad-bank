@@ -4,7 +4,6 @@ function CreateAccount() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [balance, setBalance, users, setUsers] = React.useContext(UserContext);
 
   function validate(field, label) {
     if (!field) {
@@ -30,9 +29,7 @@ function CreateAccount() {
     if (!validate(email, "email")) return;
     if (!validate(password, "password")) return;
     if (!validateEmail(password)) return;
-    users.push({ name, email, password, balance });
-    setUsers(users);
-    handleCreateUserDb({ name, email, password, balance })
+    handleCreateUserDb({ name, email, password, balance: 0 })
     setShow(false);
   }
 
