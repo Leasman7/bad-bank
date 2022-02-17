@@ -1,10 +1,10 @@
 function Withdraw() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
-  const [balance, setBalance, currentUser, setCurrentUser] = React.useContext(UserContext);
+  const [currentUser, setCurrentUser] = React.useContext(UserContext);
   const [withdraw, setWithdraw] = React.useState(0);
 
-  function setBalanceInDb(name, email, password, balance) {
+  function WithdrawInDb(name, email, password, balance) {
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -20,13 +20,12 @@ function Withdraw() {
   }
 
   function handleWithdraw() {
-    if (currentUser == null || !isValidWithdraw(withdraw)) {
+    if (!currentUser.isValid || !isValidWithdraw(withdraw)) {
       return;
     }
-    let newTotal = balance - parseInt(withdraw);
-    setBalance(newTotal);
-    setCurrentUser({"name": currentUser.name, "email": currentUser.email, "password": currentUser.password, "balance": newTotal})
-    setBalanceInDb(currentUser.name, currentUser.email, currentUser.password, currentUser.balance);
+    let newTotal = currentUser.balance - parseInt(withdraw);
+    setCurrentUser({"name": currentUser.name, "email": currentUser.email, "password": currentUser.password, "balance": newTotal, "isValid": true})
+    setWithdrawInDb(currentUser.name, currentUser.email, currentUser.password, newTotal);
     setShow(false);
     setWithdraw(0);
   }
@@ -59,7 +58,7 @@ function Withdraw() {
       body={
         show ? (
           <>
-            Balance: ${balance}
+            Balance: ${currentUser.balance}
             <br />
             Withdraw Amount
             <input
@@ -74,7 +73,7 @@ function Withdraw() {
               type="submit"
               className="btn btn-dark"
               onClick={handleWithdraw}
-              disabled={withdraw == ""}
+              disabled={withdraw == "" || !currentUser.isValid}
             >
               Withdraw
             </button>
