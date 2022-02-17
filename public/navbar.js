@@ -79,16 +79,7 @@ function NavBar() {
                     Withdraw
                   </a>
                 </li>
-                <li className="nav-item" title="View all user data">
-                  <a
-                    className={
-                      "nav-link" + (isActive("alldata") ? " active" : "")
-                    }
-                    href="#/alldata"
-                  >
-                    All Data
-                  </a>
-                </li> 
+                 
               </ul>
             </div>
           </div>
