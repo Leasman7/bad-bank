@@ -45,7 +45,7 @@ function CreateAccount() {
         body: JSON.stringify(user)
     };
     console.log(requestOptions)
-    fetch('http://' + window.location.hostname + ':3000/account/create', requestOptions)
+    fetch('http://' + window.location.hostname + ':'+process.env.PORT+'/account/create', requestOptions)
         .then(response => response.json())
         .then(data => console.log(data));
   }

@@ -13,7 +13,7 @@ function Deposit() {
       body: JSON.stringify({name, email, password, balance, accountType})
   };
   console.log(requestOptions)
-  fetch('http://' + window.location.hostname + ':3000/account/update', requestOptions)
+  fetch('http://' + window.location.hostname + ':'+process.env.PORT+'/account/update', requestOptions)
         .then(response => response.json())
         .then(data => console.log(data));
   }
@@ -50,7 +50,7 @@ function Deposit() {
       handleLogin();
     }
   }
-  
+
   return (
     <Card
       bgcolor="success"
