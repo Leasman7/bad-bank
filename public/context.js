@@ -6,6 +6,7 @@ const UserContext = React.createContext({
   email: null,
   password: null,
   balance: 0,
+  accountType: null,
   isValid: false,
 });
 
