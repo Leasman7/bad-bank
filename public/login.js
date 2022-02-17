@@ -29,7 +29,7 @@ function Login() {
       body: JSON.stringify({ "email": email, "password": password }),
     };
     console.log(requestOptions);
-    fetch('https://' + window.location.hostname + ':'+process.env.PORT+'/account/get', requestOptions)
+    fetch('https://' + window.location.hostname +'/account/get', requestOptions)
         .then(response => response.json())
         .then(data => handleSetCurrentUser(data));
   }
