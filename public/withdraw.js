@@ -4,7 +4,7 @@ function Withdraw() {
   const [currentUser, setCurrentUser] = React.useContext(UserContext);
   const [withdraw, setWithdraw] = React.useState(0);
 
-  function WithdrawInDb(name, email, password, balance) {
+  function setWithdrawInDb(name, email, password, balance) {
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -39,7 +39,7 @@ function Withdraw() {
       alert("Input cannot be a negative number");
       return false;
     }
-    if (balance - userInput < 0) {
+    if (currentUser.balance - userInput < 0) {
       alert("Cannot overdraw balance");
       return false;
     }

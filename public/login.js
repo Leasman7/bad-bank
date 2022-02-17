@@ -1,5 +1,4 @@
 function Login() {
-  const [show, setShow] = React.useState(true);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [currentUser, setCurrentUser] = React.useContext(UserContext);
@@ -37,12 +36,18 @@ function Login() {
   function handleLogin() {
     validateLogin();
     console.log(currentUser);
-  }
-
-  function clearForm() {
     setEmail("");
     setPassword("");
-    setShow(true);
+  }
+
+  function handleSignOut() {
+    setCurrentUser({
+      name: null,
+      email: null,
+      password: null,
+      balance: 0,
+      isValid: false,
+    });
   }
 
   return (
@@ -51,7 +56,7 @@ function Login() {
       header="Login to Account"
       status={status}
       body={
-        show ? (
+        !currentUser.isValid ? (
           <>
             Email address
             <br />
@@ -87,7 +92,7 @@ function Login() {
         ) : (
           <>
             <h5>You have successfully logged in</h5>
-            <button type="submit" className="btn btn-dark" onClick={clearForm}>
+            <button type="submit" className="btn btn-dark" onClick={handleSignOut}>
               Sign Out
             </button>
           </>
