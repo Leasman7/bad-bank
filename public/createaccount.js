@@ -4,6 +4,7 @@ function CreateAccount() {
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [accountType, setAccountType] = React.useState("Checking");
 
   function validate(field, label) {
     if (!field) {
@@ -29,7 +30,7 @@ function CreateAccount() {
     if (!validate(email, "email")) return;
     if (!validate(password, "password")) return;
     if (!validateEmail(password)) return;
-    handleCreateUserDb({ name, email, password, balance: 0 })
+    handleCreateUserDb({ name, email, password, balance: 0, accountType })
     setShow(false);
     alert("User must login after creating account to access badbank functions");
   }
@@ -96,6 +97,20 @@ function CreateAccount() {
               value={password}
               onChange={(e) => setPassword(e.currentTarget.value)}
             />
+            <br />
+            Account Type
+            <br />
+            <select 
+              type="select"
+              id="account-type" 
+              name="account-type"
+              value={accountType}
+              onChange={(e) => setAccountType(e.currentTarget.value)}
+              >
+              <option value="checking">Checking</option>
+              <option value="savings">Savings</option>
+            </select>
+            <br />
             <br />
             <button
               type="submit"

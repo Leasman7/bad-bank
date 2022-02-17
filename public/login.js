@@ -10,6 +10,7 @@ function Login() {
         email: null,
         password: null,
         balance: 0,
+        accountType: null,
         isValid: false,
       });
       return;
@@ -25,12 +26,12 @@ function Login() {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ "email": email, "password": password }),
     };
     console.log(requestOptions);
-    fetch('http://' + window.location.hostname + ':3000/account/login', requestOptions)
+    fetch('http://' + window.location.hostname + ':3000/account/get', requestOptions)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => handleSetCurrentUser(data));
   }
 
   function handleLogin() {
@@ -46,8 +47,15 @@ function Login() {
       email: null,
       password: null,
       balance: 0,
+      accountType: null,
       isValid: false,
     });
+  }
+
+  function handleUserKeyPress(e) {
+    if(e.key == "Enter") {
+      handleLogin();
+    }
   }
 
   return (
@@ -78,6 +86,7 @@ function Login() {
               placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.currentTarget.value)}
+              onKeyPress={handleUserKeyPress}
             />
             <br />
             <button

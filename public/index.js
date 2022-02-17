@@ -4,10 +4,11 @@ function Spa() {
     email: null,
     password: null,
     balance: 0,
+    accountType: null,
     isValid: false,
   });
   const [users, setUsers] = React.useState([
-    { name: "abel", email: "abel@mit.edu", password: "secret", balance: 100 },
+    { name: "abel", email: "abel@mit.edu", password: "secret", balance: 100, accountType: "savings" },
   ]);
 
   return (

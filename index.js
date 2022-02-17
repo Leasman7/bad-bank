@@ -11,7 +11,7 @@ app.use(cors());
 // create user account
 app.put('/account/create', function (req, res) {
     // else create user
-    dal.create(req.body.name, req.body.email, req.body.password).
+    dal.create(req.body.name, req.body.email, req.body.password, req.body.accountType).
         then((user) => {
             console.log(user);
             res.send(user);
@@ -29,7 +29,7 @@ app.post('/account/get', function (req, res) {
 
 // update balance with deposit or withdraw
 app.post('/account/update', function (req, res) {
-    dal.update(req.body.name, req.body.email, req.body.password, req.body.balance).
+    dal.update(req.body.name, req.body.email, req.body.password, req.body.balance, req.body.accountType).
         then((user) => {
             console.log(user)
             res.send(user)

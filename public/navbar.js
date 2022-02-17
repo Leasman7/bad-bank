@@ -14,6 +14,7 @@ function NavBar() {
       email: null,
       password: null,
       balance: 0,
+      accountType: null,
       isValid: false,
     });
     alert("You have logged out of your account. Click 'Login' to sign in again.")
