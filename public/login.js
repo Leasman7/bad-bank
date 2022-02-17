@@ -28,7 +28,7 @@ function Login() {
       body: JSON.stringify({ email, password }),
     };
     console.log(requestOptions);
-    fetch("http://localhost:3000/account/get", requestOptions)
+    fetch("http://' + window.location.hostname + ':3000/account/create", requestOptions)
       .then((response) => response.json())
       .then((data) => handleSetCurrentUser(data));
   }
