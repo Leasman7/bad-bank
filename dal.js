@@ -1,9 +1,11 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017';
+const ServerApiVersion = require('mongodb').ServerApiVersion;
+const url = "mongodb+srv://zach:zach@badbank.q2oef.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 let db = null;
 
 // connect to mongo
-MongoClient.connect(url, {useUnifiedTopology: true}, function (err, client) {
+MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1}, function (err, client) {
+    if (err) throw err
     console.log("Connected successfully to db server");
 
     // connect to myproject database

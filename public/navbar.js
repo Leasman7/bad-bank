@@ -16,6 +16,7 @@ function NavBar() {
       balance: 0,
       isValid: false,
     });
+    alert("You have logged out of your account. Click 'Login' to sign in again.")
   }
   return (
     <>
@@ -87,7 +88,7 @@ function NavBar() {
                   >
                     All Data
                   </a>
-                </li>
+                </li> 
               </ul>
             </div>
           </div>
@@ -95,11 +96,13 @@ function NavBar() {
             <ul className="nav-right" className="navbar-nav">
               {currentUser.isValid ? (
                 <div className="collapse navbar-collapse" id="navbarNav">
-                  <li className="nav-item" title={currentUser.name}>
+                  <li className="nav-item nav-link" title={currentUser.email}>
                     Logged in as: {currentUser.name}
                   </li>
                   <li
-                    className="nav-item"
+                    className= { "nav-item nav-link" + (isActive("signout") ? " active" : "")
+                    }
+                    role="button"
                     title="Sign out"
                     onClick={handleSignOut}
                   >

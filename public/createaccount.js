@@ -31,6 +31,7 @@ function CreateAccount() {
     if (!validateEmail(password)) return;
     handleCreateUserDb({ name, email, password, balance: 0 })
     setShow(false);
+    alert("User must login after creating account to access badbank functions");
   }
 
   function handleCreateUserDb(user){
