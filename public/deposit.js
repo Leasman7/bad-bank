@@ -13,7 +13,7 @@ function Deposit() {
       body: JSON.stringify({name, email, password, balance, accountType})
   };
   console.log(requestOptions)
-  fetch('https://' + window.location.hostname +'/account/update', requestOptions)
+  fetch('http://' + window.location.hostname +'/account/update', requestOptions)
         .then(response => response.json())
         .then(data => console.log(data));
   }
