@@ -13,7 +13,7 @@ function Withdraw() {
       body: JSON.stringify({name, email, password, balance, accountType})
   };
   console.log(requestOptions)
-  fetch('http://' + window.location.hostname +'/account/update', requestOptions)
+  fetch(document.location.protocol + '//' + window.location.hostname +'/account/update', requestOptions)
         .then(response => response.json())
         .then(data => console.log(data));
   }
